@@ -205,6 +205,9 @@ main section.page.show{display:block}
 .news{list-style:none;margin:0;padding:0;position:relative}
 .news li{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
 .news time{font-weight:600;color:var(--accent);font-size:.9rem}
+.news-img{margin:14px 0 4px;max-width:680px;cursor:zoom-in}
+.news-img img{width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;box-shadow:var(--shadow);transition:transform .3s}
+.news-img:hover img{transform:translateY(-2px)}
 @media (max-width:520px){.news li{grid-template-columns:1fr;gap:2px}}
 
 /* research */
@@ -469,7 +472,7 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
       <h3>Enantioselective heterogeneous photocatalysis</h3>
       <p>CNO generates singlet oxygen under light while L-proline supplies a chiral enamine, and the two cycles work together to build C2-quaternary indolin-3-ones. This is a rare case of enantioselective photocatalysis with carbon nitride.</p>
       <ul>
-        <li>94–99% ee, and switching to D-proline gives the opposite enantiomer</li>
+        <li>94–99% ee, and switching to D-proline gives the opposite enantiomer (<a href="https://doi.org/10.1021/acscatal.6c04337" target="_blank" rel="noopener"><i>ACS Catal.</i> 2026</a>)</li>
         <li>Extended to enantiodivergent α-C(sp<sup>3</sup>)–H functionalisation of <i>N</i>-aryl glycine esters</li>
       </ul>
     </div>
@@ -496,15 +499,15 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
   </div>
 
   <div class="theme reveal">
-    <div class="art" style="background:linear-gradient(135deg,#0f6e7a,#a8771c)"><span class="num">04</span><svg viewBox="-100 -100 200 200" data-mol="white" data-sub="Na"></svg><span class="chip-l">NaOH-Ox-CN</span></div>
+    <div class="art" style="background:linear-gradient(135deg,#0f6e7a,#a8771c)"><span class="num">04</span><svg viewBox="-100 -100 200 200" data-mol="white" data-sub="Na"></svg><span class="chip-l">Ring opening · RORC</span></div>
     <div>
       <span class="tag green">Selectivity</span><span class="tag">Mechanism</span>
-      <h3>Divergent, ring-opening and reagent-controlled synthesis</h3>
-      <p>Ring-opening–ring-closing strategies turn aziridines and epoxides into aza- and oxa-heterocycles. NaOH-Ox-CN works as a recyclable solid base. It takes salicylaldehydes and 1,3-diketones down to either hemiketals or 9-substituted tetrahydroxanthenones, and we study the branch point with Hammett analysis, crossover experiments and X-ray crystallography. Pristine g-C<sub>3</sub>N<sub>4</sub> converts styrenes into 4-aryl-α-tetralones (with Katritzky salts as non-incorporating electron acceptors) or into α-iodoketones (with I<sub>2</sub> and air).</p>
+      <h3>Ring-opening and divergent heterocycle synthesis</h3>
+      <p>Strained rings are versatile building blocks. Ring-opening–ring-closing (RORC) strategies turn aziridines and epoxides into aza- and oxa-heterocyclic scaffolds, and regioselective ring opening gives single regioisomers of 1,2-difunctionalised amines and alcohols. We follow selectivity with control experiments, kinetics and single-crystal X-ray crystallography, and we are extending these ideas to modified carbon nitrides as recyclable solid catalysts for divergent synthesis.</p>
       <div class="figs">
-        <figure data-zoom="images/crystals-1.jpg" data-cap="Single crystals of a tetrahydroxanthenone-series product under the microscope"><img src="images/crystals-1.jpg" alt="Single crystals under a microscope" loading="lazy"><figcaption>Single crystals under the microscope</figcaption></figure>
+        <figure data-zoom="images/crystals-1.jpg" data-cap="Single crystals under the microscope"><img src="images/crystals-1.jpg" alt="Single crystals under a microscope" loading="lazy"><figcaption>Single crystals under the microscope</figcaption></figure>
         <figure data-zoom="images/crystals-2.jpg" data-cap="Crystals screened under the microscope before X-ray analysis"><img src="images/crystals-2.jpg" alt="Crystals with a measuring reticle under a microscope" loading="lazy"><figcaption>Screening crystals for X-ray</figcaption></figure>
-        <figure data-zoom="images/crystal-structure.jpg" data-cap="Single-crystal X-ray structure of a nitro-substituted hemiketal, viewed in Mercury (CSD)"><img src="images/crystal-structure.jpg" alt="Crystal structure of a nitro-substituted hemiketal in Mercury" loading="lazy" style="object-position:center 40%"><figcaption>Solved X-ray structure (Mercury)</figcaption></figure>
+        <figure data-zoom="images/crystal-structure.jpg" data-cap="Single-crystal X-ray structure viewed in Mercury (CSD)"><img src="images/crystal-structure.jpg" alt="A crystal structure viewed in Mercury" loading="lazy" style="object-position:center 40%"><figcaption>Solved X-ray structure (Mercury)</figcaption></figure>
       </div>
     </div>
   </div>
@@ -827,13 +830,13 @@ const COLLAB = [
 ];
 
 // Full list of Dr. Ankita Rai's publications (source: OpenAlex / ORCID 0000-0002-2962-7427, plus thesis records).
-// To add a paper, copy one line and edit it. type: "article" | "review" | "chapter" | "book" | "submitted"
+// To add a paper, copy one line and edit it. type: "article" | "review" | "chapter" | "book"
+// List only published papers (online or in print), never manuscripts under review.
 // a = authors separated by ";"   doi = DOI without https://doi.org/
 const VKR="Vijai K. Rai", MS="Manorama Singh", AR="Ankita Rai", LDY="Lal Dhar S. Yadav";
 const P = (y,type,t,a,j,doi,v="") => ({y,type,t,a,j,doi,v});
 const PUBS = [
-  P(2026,"submitted","Deprotonated Oxidised Carbon Nitride as a Metal-Free Heterogeneous Base Catalyst Towards Divergent Synthesis of Tetrahydroxanthenones","Harendra Sheshma; Sanju Yadav; Ashish Singh; Yatharth Joshi; Bhushashi Khuntey; S. S. Sahu; "+MS+"; "+VKR+"; "+AR,"J. Org. Chem.","","Submitted"),
-  P(2026,"article","Metal-Free Oxidized Carbon Nitride/L-Proline Synergistic Catalysis: Highly Enantioselective Direct Synthesis of C2-Quaternary Indolinones via Dearomative Oxyalkylation Cascades","Harendra Sheshma; Ashish Singh; Sanju Yadav; Surabhi Upadhyay; Rahul Kumar; "+MS+"; "+VKR+"; "+AR,"ACS Catal.","10.1021/acscatal.6c04337","In press"),
+  P(2026,"article","Metal-Free Oxidized Carbon Nitride/L-Proline Synergistic Catalysis: Highly Enantioselective Direct Synthesis of C2-Quaternary Indolinones via Dearomative Oxyalkylation Cascades","Harendra Sheshma; Ashish Singh; Sanju Yadav; Surabhi Upadhyay; Rahul Kumar; "+MS+"; "+VKR+"; "+AR,"ACS Catal.","10.1021/acscatal.6c04337","published online 22 Oct 2026"),
   P(2026,"article","Visible Light-Induced Oxidized Carbon Nitride Catalysis toward Regioselective Ring Opening of Aziridines","Harendra Sheshma; Sanju Yadav; Ashish Kumar Singh; Smriti Suryavanshi; Devkumari Patel; "+MS+"; "+VKR+"; "+AR,"J. Org. Chem.","10.1021/acs.joc.5c01366","91 (2), 859–869"),
   P(2026,"article","Unprecedented Microwave-Induced Precooled Mixed-Acid Oxidation for Rapid and Efficient Synthesis of Graphene Oxide","Bhushashi Khuntey; Smriti Suryavanshi; Rahul Kumar; Ashish Singh; "+AR+"; "+MS+"; "+VKR,"ChemistrySelect","10.1002/slct.74205"),
   P(2026,"article","Bioinspired Unprecedented Protonation of Graphitic Carbon Nitride With Citrus limon Under Microwave Irradiation","Ambika Asati; Yatharth Joshi; Swati Jaiswal; Harendra Sheshma; "+AR+"; "+MS+"; "+VKR,"ChemistrySelect","10.1002/slct.202507204","11 (23), e202507204"),
@@ -931,8 +934,6 @@ const AWARDS = [
   {y:"2023", who:"Harendra Sheshma", t:"Best Poster Award", at:"International Conference & Workshop on Twelve Principles of Green Chemistry and UN-SDGs, University of Delhi"},
   {y:"2013", who:"Dr. Ankita Rai", t:"DST INSPIRE Faculty Fellowship", at:"Department of Science & Technology, Government of India"},
   {y:"2011", who:"Dr. Ankita Rai", t:"J. S. Dasgupta Young Scientist Award", at:"Indian Chemical Society"},
-  {y:"2017", who:"Harendra Sheshma", t:"All India Rank 3, JNU Ph.D. Entrance Examination", at:"Jawaharlal Nehru University"},
-  {y:"2016", who:"Harendra Sheshma", t:"CSIR-NET JRF (AIR 49), later SRF", at:"Council of Scientific & Industrial Research, Government of India"},
 ];
 
 // cat: "Lab" | "Conferences" | "Celebrations" | "Science"; add src:"images/…" to show a real photo
@@ -955,9 +956,11 @@ const GALLERY = [
   {cat:"Science", title:"A colourful product in the flask", src:"images/synthesis.jpg"},
 ];
 
+// add img:"images/…" to show a picture under a news item
 const NEWS = [
+  {d:"22 Oct 2026", t:"<b>New paper online in <i>ACS Catalysis</i>!</b> Oxidised carbon nitride and L-proline work together as a metal-free, recyclable dual catalyst. Under visible light, CNO makes singlet oxygen that dearomatises 2-arylindoles, while L-proline adds a ketone enantioselectively, giving C2-quaternary indolin-3-ones in up to 99% ee. <a href=\"https://doi.org/10.1021/acscatal.6c04337\" target=\"_blank\" rel=\"noopener\">Read the paper ↗</a>",
+   img:"images/acscatal-2026-toc.png", alt:"Graphical abstract: 2-arylindoles and cyclic ketones give chiral C2-quaternary indolin-3-ones with O@g-C3N4 and L-proline under visible light"},
   {d:"Oct 2026", t:"Harendra Sheshma submits his Ph.D. thesis, “Strategic Application of Graphitic Carbon Nitride Based Catalysis in Organic Transformation”. Congratulations!"},
-  {d:"2026", t:"Our CNO/L-proline enantioselective photocatalysis paper is accepted in <i>ACS Catalysis</i>."},
   {d:"2026", t:"New edited book: <i>Catalytic Applications of Carbon Nitride-Based Nanomaterials</i> (Bentham Science), co-edited by Dr. Rai."},
   {d:"2026", t:"Ring-opening–ring-closing routes to aza- and oxa-heterocycles appear in <i>Tetrahedron Lett.</i> and <i>ChemistrySelect</i>."},
   {d:"Jan 2026", t:"Our aziridine ring-opening paper is featured on the <b>front cover</b> of <i>J. Org. Chem.</i> 91 (2)."},
@@ -1051,7 +1054,7 @@ const fmtTitle = t => esc(t)
   .replace(/TiO2/g,"TiO<sub>2</sub>").replace(/NiSnO3/g,"NiSnO<sub>3</sub>").replace(/NO2/g,"NO<sub>2</sub>")
   .replace(/Cu\(OTf\)2/g,"Cu(OTf)<sub>2</sub>").replace(/sp([23])\)/g,"sp<sup>$1</sup>)");
 let pubFilter = "all";
-const FILTERS = [["all","All"],["article","Articles"],["review","Reviews"],["books","Books & chapters"],["submitted","Submitted"]];
+const FILTERS = [["all","All"],["article","Articles"],["review","Reviews"],["books","Books & chapters"]];
 const inFilter = p => pubFilter==="all" || p.type===pubFilter || (pubFilter==="books" && (p.type==="book"||p.type==="chapter"));
 $("#pub-filters").innerHTML = FILTERS.map(([k,l])=>`<button class="chip${k==="all"?" on":""}" data-f="${k}">${l}</button>`).join(" ");
 $("#pub-filters").onclick = e => { const b=e.target.closest(".chip"); if(!b) return;
@@ -1109,7 +1112,8 @@ document.addEventListener("keydown", e => { if(e.key==="Escape") closeLb(); });
 renderGal();
 
 // news
-const newsLi = (n,i) => `<li class="reveal" style="--d:${Math.min(i,5)*.05}s"><time>${esc(n.d)}</time><div>${n.t}</div></li>`;
+const newsLi = (n,i) => `<li class="reveal" style="--d:${Math.min(i,5)*.05}s"><time>${esc(n.d)}</time><div>${n.t}${n.img
+  ? `<figure class="news-img" data-zoom="${esc(n.img)}" data-cap="${esc(n.alt||"")}"><img src="${esc(n.img)}" alt="${esc(n.alt||"")}" loading="lazy"></figure>` : ""}</div></li>`;
 $("#news-latest").innerHTML = NEWS.slice(0,4).map(newsLi).join("");
 $("#news-all").innerHTML = NEWS.map(newsLi).join("");
 $("#conf").innerHTML = CONF.map((c,i)=>newsLi({d:c.d,t:esc(c.t)},i)).join("");
