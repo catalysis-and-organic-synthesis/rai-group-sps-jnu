@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rai Research Group | JNU</title>
+<meta name="description" content="Rai Research Group, School of Physical Sciences, Jawaharlal Nehru University, New Delhi. Sustainable catalysis, carbon nitride photocatalysis and asymmetric synthesis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16213a; --ink-2:#47526b; --muted:#6b7590;
+  --bg:#f7f6f2; --surface:#ffffff; --line:#e4e2da;
+  --brand:#1f2f6b; --brand-2:#2c47a6; --accent:#0f8a7e; --accent-soft:#e3f3f0;
+  --gold:#b7862b; --gold-soft:#f7efdd;
+  --radius:14px; --shadow:0 1px 2px rgba(22,33,58,.05),0 8px 24px rgba(22,33,58,.06);
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:650;line-height:1.2;margin:0 0 .5em;color:var(--brand)}
+h1{font-size:clamp(2rem,5vw,3.3rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+h3{font-size:1.2rem}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+sub{font-size:.7em}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(247,246,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;color:var(--brand);font-family:Fraunces,serif;font-weight:650;font-size:1.15rem}
+.logo:hover{text-decoration:none}
+.logo small{display:block;font:500 .72rem/1.2 Inter,sans-serif;color:var(--muted);letter-spacing:.02em}
+nav ul{list-style:none;display:flex;gap:2px;margin:0;padding:0}
+nav a{display:block;padding:8px 11px;border-radius:8px;color:var(--ink-2);font-weight:500;font-size:.92rem}
+nav a:hover{background:#ecebe5;text-decoration:none}
+nav a.active{color:var(--brand);background:#e7eaf6}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer;color:var(--ink)}
+@media (max-width:980px){
+  .menu-btn{display:block}
+  nav{position:absolute;top:68px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;padding:8px 16px 16px}
+  nav a{padding:12px}
+}
+
+/* pages */
+main section.page{display:none;padding:56px 0 80px;animation:fade .35s ease}
+main section.page.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:62ch}
+.page-head{margin-bottom:36px;max-width:760px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#1a2860 0%,#24398a 55%,#0f6e7a 100%);color:#fff;border-radius:22px;padding:clamp(36px,6vw,72px);margin-bottom:56px}
+.hero h1{color:#fff;max-width:16ch}
+.hero p{color:#dbe3ff;max-width:56ch;font-size:1.1rem}
+.hero svg.lattice{position:absolute;right:-60px;top:-40px;width:520px;opacity:.18;pointer-events:none}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid transparent}
+.btn:hover{text-decoration:none}
+.btn-light{background:#fff;color:var(--brand)}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-brand{background:var(--brand);color:#fff}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:-20px 0 56px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.stat b{display:block;font-family:Fraunces,serif;font-size:2rem;color:var(--brand);line-height:1.1}
+.stat span{color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.card p{color:var(--ink-2);margin:.3em 0 0}
+.icon{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:14px}
+.tag{display:inline-block;font-size:.74rem;font-weight:600;padding:3px 9px;border-radius:99px;background:#eef0f7;color:var(--brand-2);margin:0 6px 6px 0}
+.tag.green{background:var(--accent-soft);color:var(--accent)}
+.tag.gold{background:var(--gold-soft);color:var(--gold)}
+
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:56px 0 20px}
+.section-title h2{margin:0}
+
+/* news */
+.news{list-style:none;margin:0;padding:0}
+.news li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.news time{font-weight:600;color:var(--accent);font-size:.9rem}
+@media (max-width:520px){.news li{grid-template-columns:1fr;gap:2px}}
+
+/* research */
+.theme{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:start;padding:28px 0;border-top:1px solid var(--line)}
+.theme:first-of-type{border-top:0}
+.theme .art{aspect-ratio:4/3;border-radius:var(--radius);display:grid;place-items:center;color:#fff}
+.theme ul{margin:.6em 0 0;padding-left:1.1em;color:var(--ink-2)}
+@media (max-width:720px){.theme{grid-template-columns:1fr}}
+
+/* people */
+.pi{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:start}
+@media (max-width:760px){.pi{grid-template-columns:1fr}}
+.avatar{aspect-ratio:1;border-radius:var(--radius);background:linear-gradient(140deg,#dfe4f5,#cfe9e5);display:grid;place-items:center;font-family:Fraunces,serif;font-size:3rem;color:var(--brand);overflow:hidden}
+.avatar.sm{font-size:1.6rem;border-radius:50%;width:84px;height:84px;aspect-ratio:auto;margin-bottom:14px}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 14px 20px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.timeline b{color:var(--brand)}
+.person h3{margin-bottom:2px}
+.person .role{color:var(--accent);font-weight:600;font-size:.88rem}
+.person p{font-size:.93rem}
+.alumni{columns:3;column-gap:28px;padding:0;list-style:none}
+.alumni li{break-inside:avoid;padding:8px 0;border-bottom:1px dashed var(--line)}
+.alumni span{color:var(--muted);font-size:.88rem;display:block}
+@media (max-width:760px){.alumni{columns:1}}
+
+/* publications */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+.toolbar input{flex:1;min-width:220px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--surface)}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 14px;font:500 .88rem Inter,sans-serif;cursor:pointer;color:var(--ink-2)}
+.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.year-h{font-family:Fraunces,serif;color:var(--brand);font-size:1.4rem;margin:32px 0 8px}
+.pub{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.pub .n{font-weight:600;color:var(--muted)}
+.pub .t{font-weight:600;color:var(--ink)}
+.pub .a{color:var(--ink-2);font-size:.93rem}
+.pub .j{font-size:.93rem}
+.pub .j i{color:var(--brand-2)}
+.empty{color:var(--muted);padding:24px 0}
+
+/* awards */
+.award{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start}
+.medal{width:56px;height:56px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:grid;place-items:center}
+.award .yr{font-weight:600;color:var(--gold);font-size:.85rem}
+
+/* gallery */
+.gallery{columns:3;column-gap:16px}
+@media (max-width:900px){.gallery{columns:2}}
+@media (max-width:520px){.gallery{columns:1}}
+.gitem{break-inside:avoid;margin:0 0 16px;border-radius:var(--radius);overflow:hidden;position:relative;cursor:zoom-in;background:var(--surface);border:1px solid var(--line)}
+.gitem .ph{display:grid;place-items:center;color:#fff;text-align:center;padding:20px}
+.gitem img{width:100%;transition:transform .4s}
+.gitem:hover img{transform:scale(1.03)}
+.gitem figcaption{padding:12px 14px;font-size:.88rem;color:var(--ink-2)}
+.gitem figcaption b{display:block;color:var(--ink)}
+.lightbox{position:fixed;inset:0;background:rgba(10,14,30,.9);display:none;align-items:center;justify-content:center;z-index:100;padding:24px}
+.lightbox.open{display:flex}
+.lightbox .box{max-width:900px;width:100%;color:#fff;text-align:center}
+.lightbox .box > div{border-radius:12px;overflow:hidden}
+.lightbox .box img{margin:0 auto;max-height:76vh}
+.lightbox button{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+
+/* join / contact */
+.callout{background:linear-gradient(135deg,var(--accent-soft),#eaf0ff);border:1px solid #cfe3df;border-radius:var(--radius);padding:28px}
+.map{border:0;width:100%;height:340px;border-radius:var(--radius)}
+dl.info{display:grid;grid-template-columns:110px 1fr;gap:10px 16px;margin:0}
+dl.info dt{color:var(--muted);font-weight:500}
+dl.info dd{margin:0}
+
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home">
+      <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1f2f6b"/><path d="M20 7l11 6.4v12.8L20 32.6 9 26.2V13.4z" fill="none" stroke="#7fe0d3" stroke-width="2.2"/><circle cx="20" cy="20" r="3.4" fill="#fff"/></svg>
+      <span>Rai Research Group<small>School of Physical Sciences · JNU</small></span>
+    </a>
+    <button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰ Menu</button>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#pi">PI</a></li>
+        <li><a href="#members">Members</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#awards">Prizes &amp; Awards</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#join">Join Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- HOME -->
+<section class="page" id="home">
+  <div class="hero">
+    <svg class="lattice" viewBox="0 0 300 300" aria-hidden="true">
+      <defs><pattern id="hex" width="52" height="45" patternUnits="userSpaceOnUse"><path d="M13 0h26l13 22.5L39 45H13L0 22.5z" fill="none" stroke="#fff" stroke-width="1.6"/></pattern></defs>
+      <rect width="300" height="300" fill="url(#hex)"/>
+    </svg>
+    <div class="eyebrow" style="color:#7fe0d3">Jawaharlal Nehru University · New Delhi</div>
+    <h1>Designing sustainable catalysts for selective organic synthesis</h1>
+    <p>We build metal-free, recyclable catalysts, chiefly modified graphitic carbon nitride (g-C<sub>3</sub>N<sub>4</sub>), and use light, organocatalysis and solid-base chemistry to control which bond forms, where it forms and which enantiomer is made.</p>
+    <div class="btns">
+      <a class="btn btn-light" href="#research">Explore our research</a>
+      <a class="btn btn-ghost" href="#publications">Publications</a>
+      <a class="btn btn-ghost" href="#join">Join the group</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b id="stat-pubs">–</b><span>Publications listed</span></div>
+    <div class="stat"><b>2013</b><span>Group founded at JNU</span></div>
+    <div class="stat"><b>94–99%</b><span>ee in heterogeneous photocatalysis</span></div>
+    <div class="stat"><b>5×</b><span>Catalyst reuse, no loss in activity</span></div>
+  </div>
+
+  <div class="grid g3">
+    <div class="card">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></div>
+      <h3>Visible-light photocatalysis</h3>
+      <p>Oxidised and engineered carbon nitrides run C–C, C–N, C–O and C–halogen bond-forming reactions under household LEDs.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4l-4 8 4 8M17 4l4 8-4 8M12 3v18"/></svg></div>
+      <h3>Asymmetric catalysis</h3>
+      <p>Heterogeneous photocatalysts paired with chiral organocatalysts give congested quaternary stereocentres in high enantiomeric excess.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v7M12 10l-6 6M12 10l6 6"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/></svg></div>
+      <h3>Divergent synthesis</h3>
+      <p>One catalyst, one feedstock, different products: temperature, substituents and added reagents steer selectivity.</p>
+    </div>
+  </div>
+
+  <div class="section-title"><h2>Latest news</h2><a href="#news">All news →</a></div>
+  <ul class="news" id="news-latest"></ul>
+</section>
+
+<!-- RESEARCH -->
+<section class="page" id="research">
+  <div class="page-head">
+    <div class="eyebrow">Research</div>
+    <h2>What we work on</h2>
+    <p class="lead">Our central idea is that carbon nitride is more than a simple photosensitiser. It is a scaffold we can tune. Oxidation, alkali loading or a change of added reagent turns it into a set of catalysts, each built for a particular selectivity problem.</p>
+  </div>
+
+  <div class="theme">
+    <div class="art" style="background:linear-gradient(135deg,#24398a,#0f8a7e)"><svg width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="3"><path d="M50 12l33 19v38L50 88 17 69V31z"/><path d="M50 32l16 9v18l-16 9-16-9V41z"/><path d="M50 12v20M83 31l-17 10M83 69l-17-10M50 88V68M17 69l17-10M17 31l17 10"/></svg></div>
+    <div>
+      <span class="tag green">Photocatalysis</span><span class="tag">Materials</span>
+      <h3>Engineered graphitic carbon nitride catalysts</h3>
+      <p>We treat g-C<sub>3</sub>N<sub>4</sub> with acid to make oxidised carbon nitride (CNO / Ox-CN), adding carbonyl and carboxyl groups, or load it with alkali to make NaOH-Ox-CN. We follow the surface chemistry by PXRD, FTIR, XPS, SEM/TEM and EPR, and link those changes to catalytic selectivity.</p>
+      <ul>
+        <li>Regioselective ring opening of <i>N</i>-tosylaziridines and epoxides under blue light, with 86–95% yield, gram scale and 5 reuse cycles</li>
+        <li>Single-electron-transfer pathways supported by radical trapping (TEMPO, BHT) and DPPH-EPR studies</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="art" style="background:linear-gradient(135deg,#5b2c83,#24398a)"><svg width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="3"><path d="M30 20l-14 30 14 30M70 20l14 30-14 30"/><circle cx="50" cy="50" r="10"/><path d="M50 15v20M50 65v20"/></svg></div>
+    <div>
+      <span class="tag green">Asymmetric</span><span class="tag">Dual catalysis</span>
+      <h3>Enantioselective heterogeneous photocatalysis</h3>
+      <p>CNO generates singlet oxygen under light while L-proline supplies a chiral enamine, and the two cycles work together to build C2-quaternary indolin-3-ones. This is a rare case of enantioselective photocatalysis with carbon nitride.</p>
+      <ul>
+        <li>94–99% ee, and switching to D-proline gives the opposite enantiomer</li>
+        <li>Extended to enantiodivergent α-C(sp<sup>3</sup>)–H functionalisation of <i>N</i>-aryl glycine esters</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="art" style="background:linear-gradient(135deg,#0f6e7a,#b7862b)"><svg width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="3"><path d="M50 15v30M50 45L22 75M50 45l28 30"/><circle cx="22" cy="80" r="7"/><circle cx="78" cy="80" r="7"/><circle cx="50" cy="12" r="5"/></svg></div>
+    <div>
+      <span class="tag green">Selectivity</span><span class="tag">Mechanism</span>
+      <h3>Divergent and reagent-controlled synthesis</h3>
+      <p>NaOH-Ox-CN works as a recyclable solid base. It takes salicylaldehydes and 1,3-diketones down to either hemiketals or 9-substituted tetrahydroxanthenones, and we study the branch point with Hammett analysis, crossover experiments and X-ray crystallography. Pristine g-C<sub>3</sub>N<sub>4</sub> converts styrenes into 4-aryl-α-tetralones (with Katritzky salts as non-incorporating electron acceptors) or into α-iodoketones (with I<sub>2</sub> and air).</p>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="art" style="background:linear-gradient(135deg,#1f2f6b,#5b7bd6)"><svg width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="3"><path d="M50 18l28 16v32L50 82 22 66V34z"/><path d="M50 18v20M22 66l18-10M78 66L60 56"/><circle cx="50" cy="50" r="9"/></svg></div>
+    <div>
+      <span class="tag green">Organocatalysis</span><span class="tag">Heterocycles</span>
+      <h3>Organocatalysis and stereoselective heterocycle synthesis</h3>
+      <p>The group started out in synthetic organic chemistry, using Baylis–Hillman adducts, nitroalkenes, NHC catalysis, ionic liquids and bio-renewable resources for stereoselective, multicomponent routes to small heterocycles such as 3-nitroazetidines, 3-nitrothietanes, β-sultams and <i>N</i>-formyl piperidines.</p>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="art" style="background:linear-gradient(135deg,#0f8a7e,#2c47a6)"><svg width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="3"><path d="M15 70h18l8-30 10 45 10-55 8 40h16"/></svg></div>
+    <div>
+      <span class="tag green">Collaborative</span><span class="tag">Sensors</span>
+      <h3>Nanocomposites for electrochemical sensing</h3>
+      <p>With collaborators, we build graphene-oxide and nanoalloy composites for sensitive electrochemical detection of hydrazine, cadmium and <i>p</i>-phenylenediamine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PI -->
+<section class="page" id="pi">
+  <div class="pi">
+    <div>
+      <div class="avatar" id="pi-photo">AR</div>
+      <div class="card" style="margin-top:18px">
+        <dl class="info">
+          <dt>Office</dt><dd>Room 110, SPS</dd>
+          <dt>Phone</dt><dd>011-2673 8808</dd>
+          <dt>Email</dt><dd>ankitarai [at] mail.jnu.ac.in</dd>
+        </dl>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Principal Investigator</div>
+      <h2>Dr. Ankita Rai</h2>
+      <p class="lead">Assistant Professor, School of Physical Sciences, Jawaharlal Nehru University, New Delhi</p>
+      <p>Dr. Rai's group works on sustainable synthetic methodology: organocatalysis, stereoselective heterocycle synthesis and, more recently, metal-free heterogeneous photocatalysis with engineered graphitic carbon nitride. The group values rigorous mechanistic work, with control experiments and reproducible results at the centre of every project.</p>
+      <h3 style="margin-top:28px">Career</h3>
+      <ul class="timeline">
+        <li><b>2013 – present</b> · Assistant Professor, School of Physical Sciences, JNU, New Delhi</li>
+        <li><b>2013</b> · DST INSPIRE Faculty Fellowship, Government of India</li>
+        <li><b>2010</b> · Research Associate, CSIR, Allahabad</li>
+        <li><b>2009</b> · Ph.D., University of Allahabad</li>
+      </ul>
+      <h3 style="margin-top:22px">Research interests</h3>
+      <p>
+        <span class="tag">Carbon nitride photocatalysis</span><span class="tag">Asymmetric catalysis</span><span class="tag">Organocatalysis</span><span class="tag">Baylis–Hillman chemistry</span><span class="tag">Nitroalkenes</span><span class="tag">Ionic liquids</span><span class="tag">Bio-renewable resources</span><span class="tag">Multicomponent heterocycle synthesis</span>
+      </p>
+      <div class="btns">
+        <a class="btn btn-brand" href="https://jnu.ac.in/index.php/content/ankitarai" target="_blank" rel="noopener">JNU profile</a>
+        <a class="btn" style="border-color:var(--line)" href="#publications">Publications</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section class="page" id="members">
+  <div class="page-head">
+    <div class="eyebrow">People</div>
+    <h2>Group members</h2>
+    <p class="lead">The group brings together Ph.D. scholars, M.Sc. dissertation students and collaborators who share an interest in clean, selective catalysis.</p>
+  </div>
+  <h3>Current Ph.D. students</h3>
+  <div class="grid g3" id="current"></div>
+
+  <div class="section-title"><h2>Alumni</h2></div>
+  <ul class="alumni" id="alumni"></ul>
+
+  <div class="section-title"><h2>M.Sc. dissertation students</h2></div>
+  <ul class="alumni" id="msc"></ul>
+
+  <div class="section-title"><h2>Collaborators</h2></div>
+  <div class="grid g3" id="collab"></div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="page" id="publications">
+  <div class="page-head">
+    <div class="eyebrow">Output</div>
+    <h2>Publications</h2>
+    <p class="lead">Group members are shown in bold. Click a title to open the paper by its DOI.</p>
+  </div>
+  <div class="toolbar">
+    <input id="pub-q" type="search" placeholder="Search title, author or journal…" aria-label="Search publications">
+    <div id="pub-filters"></div>
+  </div>
+  <div id="pub-list"></div>
+</section>
+
+<!-- AWARDS -->
+<section class="page" id="awards">
+  <div class="page-head">
+    <div class="eyebrow">Recognition</div>
+    <h2>Prizes &amp; awards</h2>
+    <p class="lead">Honours received by the PI and by group members.</p>
+  </div>
+  <div class="grid g2" id="award-list"></div>
+</section>
+
+<!-- GALLERY -->
+<section class="page" id="gallery">
+  <div class="page-head">
+    <div class="eyebrow">Life in the lab</div>
+    <h2>Gallery</h2>
+    <p class="lead">Lab days, conferences, celebrations and the science itself.</p>
+  </div>
+  <div class="toolbar" id="gal-filters"></div>
+  <div class="gallery" id="gal"></div>
+</section>
+
+<!-- NEWS -->
+<section class="page" id="news">
+  <div class="page-head">
+    <div class="eyebrow">Updates</div>
+    <h2>News</h2>
+  </div>
+  <ul class="news" id="news-all"></ul>
+  <div class="section-title"><h2>Conferences &amp; talks</h2></div>
+  <ul class="news" id="conf"></ul>
+</section>
+
+<!-- JOIN -->
+<section class="page" id="join">
+  <div class="page-head">
+    <div class="eyebrow">Opportunities</div>
+    <h2>Join the group</h2>
+    <p class="lead">We welcome motivated students who are curious about catalysis, mechanism and sustainable synthesis.</p>
+  </div>
+  <div class="grid g3">
+    <div class="card"><span class="tag green">Ph.D.</span><h3>Doctoral positions</h3><p>Admission is through the JNU Ph.D. entrance examination. Candidates holding CSIR/UGC-NET JRF, DST-INSPIRE or similar fellowships are encouraged to get in touch.</p></div>
+    <div class="card"><span class="tag green">M.Sc.</span><h3>Dissertation projects</h3><p>JNU M.Sc. students can do their dissertation in the group, with hands-on training in synthesis, catalyst preparation and characterisation.</p></div>
+    <div class="card"><span class="tag green">Postdoc / Interns</span><h3>Fellows &amp; summer interns</h3><p>Applicants with their own fellowships (e.g. N-PDF, academy summer fellowships) are welcome to discuss a project.</p></div>
+  </div>
+  <div class="callout" style="margin-top:28px">
+    <h3>How to apply</h3>
+    <p style="margin:0;color:var(--ink-2)">Email Dr. Rai with your CV, a short note on your research interests and the names of two referees. Use the subject line <b>“Group application – [position]”</b>.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="contact">
+  <div class="page-head">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Contact</h2>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Rai Research Group</h3>
+      <p>School of Physical Sciences<br>Jawaharlal Nehru University<br>New Mehrauli Road, New Delhi – 110067, India</p>
+      <dl class="info" style="margin-top:18px">
+        <dt>PI office</dt><dd>Room 110, SPS</dd>
+        <dt>Phone</dt><dd>011-2673 8808</dd>
+        <dt>Email</dt><dd>ankitarai [at] mail.jnu.ac.in</dd>
+        <dt>School</dt><dd><a href="https://www.jnu.ac.in/sps" target="_blank" rel="noopener">jnu.ac.in/sps</a></dd>
+      </dl>
+    </div>
+    <iframe class="map" loading="lazy" title="Map of School of Physical Sciences, JNU" src="https://www.google.com/maps?q=School+of+Physical+Sciences,+Jawaharlal+Nehru+University,+New+Delhi&output=embed"></iframe>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Rai Research Group · School of Physical Sciences, Jawaharlal Nehru University</span>
+    <span><a href="#contact">Contact</a> · <a href="https://jnu.ac.in" target="_blank" rel="noopener">JNU</a></span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lb" onclick="if(event.target===this)closeLb()">
+  <button onclick="closeLb()" aria-label="Close">×</button>
+  <div class="box"><div id="lb-media"></div><p id="lb-cap"></p></div>
+</div>
+
+<script>
+/* =====================================================================
+   EDIT THE GROUP'S CONTENT HERE. Every list below drives one page.
+   Photos: put files in the "images" folder next to this page and set
+   e.g. photo:"images/harendra.jpg" or src:"images/lab-2024.jpg".
+   ===================================================================== */
+
+const PI_PHOTO = ""; // e.g. "images/ankita-rai.jpg"
+
+const GROUP = ["Rai, A.","Sheshma, H.","Yadav, S.","Singh, A."]; // names shown in bold
+
+const CURRENT = [
+  {name:"Harendra Sheshma", role:"Ph.D. Scholar (CSIR-SRF)", photo:"",
+   bio:"Strategic application of graphitic carbon nitride based catalysis in organic transformations: regio-, enantio- and divergent selectivity.",
+   link:"mailto:harendrasheshma@gmail.com"},
+  {name:"Sanju Yadav", role:"Ph.D. Scholar", photo:"", bio:"Carbon nitride catalysis and heterocycle synthesis."},
+  {name:"Ashish Singh", role:"Ph.D. Scholar", photo:"", bio:"Heterogeneous photocatalysis and asymmetric synthesis."},
+];
+
+const ALUMNI = [
+  {name:"Dr. Prashant Shukla", note:"Ph.D."},
+  {name:"Dr. Puneet Kumar Singh", note:"Ph.D."},
+];
+
+const MSC = ["Himadri Boruah","Radhika","Rakhi Bamania","Anwita Roy","Ayushi Singh","Rakhi Maan","Partyaksha","Anjali Meena","Anjali Kumari","Eshita Kainthola"];
+
+const COLLAB = [
+  {name:"Prof. Vijai K. Rai", place:"University of Lucknow", area:"Carbon nitride catalysis, green synthesis"},
+  {name:"Dr. M. Singh", place:"", area:"Electrochemistry and nanocomposite sensors"},
+];
+
+// type: "article" | "review" | "submitted"
+const PUBS = [
+  {y:2026,type:"submitted",t:"Deprotonated Oxidised Carbon Nitride as a Metal-Free Heterogeneous Base Catalyst Towards Divergent Synthesis of Tetrahydroxanthenones",
+   a:"Sheshma, H.; Yadav, S.; Singh, A.; Joshi, Y.; Khuntey, B.; Sahu, S. S.; Singh, M.; Rai, V. K.; Rai, A.", j:"J. Org. Chem.", v:"Submitted"},
+  {y:2026,type:"article",t:"Metal-Free Oxidized Carbon Nitride/L-Proline Synergistic Catalysis: Highly Enantioselective Direct Synthesis of C2-Quaternary Indolinones via Dearomative Oxyalkylation Cascades",
+   a:"Sheshma, H.; Singh, A.; Yadav, S.; Upadhyay, S.; Kumar, R.; Singh, M.; Rai, V. K.; Rai, A.", j:"ACS Catal.", v:"2026, in press", doi:"10.1021/acscatal.6c04337"},
+  {y:2026,type:"article",t:"Visible Light-Induced Oxidized Carbon Nitride Catalysis toward Regioselective Ring Opening of Aziridines",
+   a:"Sheshma, H.; Yadav, S.; Singh, A.; Suryavanshi, S.; Patel, D.; Singh, M.; Rai, V. K.; Rai, A.", j:"J. Org. Chem.", v:"2026, 91 (2), 859–869", doi:"10.1021/acs.joc.5c01366"},
+  {y:2026,type:"article",t:"Bioinspired Unprecedented Protonation of Graphitic Carbon Nitride With Citrus limon Under Microwave Irradiation",
+   a:"Asati, A.; Joshi, Y.; Jaiswal, S.; Sheshma, H.; Rai, A.; Singh, M.; Rai, V. K.", j:"ChemistrySelect", v:"2026, 11 (23), e202507204", doi:"10.1002/slct.202507204"},
+  {y:2025,type:"review",t:"Advances in Carbon Nitride Catalysis towards Heterocyclization",
+   a:"Rai, A.; Yadav, S.; Sheshma, H.; Singh, M.; Rai, V. K.", j:"Synthesis", v:"2025, 57 (13), 2037–2051", doi:"10.1055/s-0043-1775437"},
+  {y:2021,type:"article",t:"Sensitive Electrocatalytic Determination of p-Phenylenediamine Using Bimetallic Nanocomposite of Cu-Ag Nanoalloy and Ionic Liquid-Graphene Oxide",
+   a:"Singh, M.; Bhardiya, S. R.; Asati, A.; Sheshma, H.; Rai, V. K.; Rai, A.", j:"J. Electroanal. Chem.", v:"2021, 894, 115360", doi:"10.1016/j.jelechem.2021.115360"},
+  {y:2021,type:"article",t:"A Novel Bioconjugated Reduced Graphene Oxide-Based Nanocomposite for Sensitive Electrochemical Detection of Cadmium in Water",
+   a:"Bhardiya, S. R.; Asati, A.; Sheshma, H.; Rai, A.; Rai, V. K.; Singh, M.", j:"Sens. Actuators, B", v:"2021, 328, 129019", doi:"10.1016/j.snb.2020.129019"},
+  {y:2021,type:"article",t:"Design of a Sensitive Electrochemical Sensor Based on Ferrocene-Reduced Graphene Oxide/Mn-Spinel for Hydrazine Detection",
+   a:"Singh, M.; Bhardiya, S. R.; Asati, A.; Sheshma, H.; Rai, A.; Rai, V. K.", j:"Electroanalysis", v:"2021, 33 (2), 464–472", doi:"10.1002/elan.202060345"},
+  {y:2020,type:"article",t:"Facile Synthesis of γ-Ketonitriles in Water via C(sp2)–H Activation of Aromatic Aldehydes over Cu@g-C3N4 under Visible-Light",
+   a:"Rai, V. K.; Verma, F.; Bhardiya, S. R.; Sheshma, H.; Rai, A.; Singh, M.", j:"Eur. J. Org. Chem.", v:"2020, 2020 (36), 5841–5846", doi:"10.1002/ejoc.202000945"},
+  {y:2013,type:"article",t:"Cyclopropenone Catalyzed Direct Conversion of Aldoximes and Primary Amides to Nitriles",
+   a:"Rai, A. et al.", j:"Eur. J. Org. Chem.", v:"2013, 3127–3131"},
+  {y:2012,type:"article",t:"NHC-Catalysed Diastereoselective Synthesis of N-Formyl Piperidines via Direct Annulation of Enals and Oxazol-5-ones",
+   a:"Rai, A. et al.", j:"Chem. Commun.", v:"2012, 48, 3766–3768"},
+  {y:2012,type:"article",t:"A New Application of Baylis–Hillman Alcohols to a Stereoselective Synthesis of 3-Nitrothietanes",
+   a:"Rai, A. et al.", j:"Tetrahedron", v:"2012, 68, 2459–2464"},
+  {y:2011,type:"article",t:"Strategic Application of Baylis–Hillman Adducts to General Synthesis of 3-Nitroazetidines",
+   a:"Rai, A. et al.", j:"Org. Biomol. Chem.", v:"2011, 9, 8058–8061"},
+  {y:2011,type:"article",t:"[2+2] Annulation of Aldimines with Sulfonic Acids: A Novel One-Pot cis-Selective Route to β-Sultams",
+   a:"Rai, A. et al.", j:"Eur. J. Org. Chem.", v:"2011, 4302–4306"},
+];
+
+const AWARDS = [
+  {y:"2026", who:"Harendra Sheshma", t:"Best Poster Award (sponsored by J. Chem. Theory Comput., ACS Publications)", at:"National Science Day 2026, “Women in Science: Catalysing Viksit Bharat”, SPS, JNU"},
+  {y:"2023", who:"Harendra Sheshma", t:"Best Poster Award", at:"International Conference & Workshop on Twelve Principles of Green Chemistry and UN-SDGs, University of Delhi"},
+  {y:"2013", who:"Dr. Ankita Rai", t:"DST INSPIRE Faculty Fellowship", at:"Department of Science & Technology, Government of India"},
+  {y:"2011", who:"Dr. Ankita Rai", t:"J. S. Dasgupta Young Scientist Award", at:"Indian Chemical Society"},
+  {y:"2017", who:"Harendra Sheshma", t:"All India Rank 3, JNU Ph.D. Entrance Examination", at:"Jawaharlal Nehru University"},
+  {y:"2016", who:"Harendra Sheshma", t:"CSIR-NET JRF (AIR 49), later SRF", at:"Council of Scientific & Industrial Research, Government of India"},
+];
+
+// cat: "Lab" | "Conferences" | "Celebrations" | "Science"; add src:"images/…" to show a real photo
+const GALLERY = [
+  {cat:"Science", title:"Oxidised carbon nitride under blue light", h:220, c:["#24398a","#0f8a7e"]},
+  {cat:"Conferences", title:"Best Poster Award, National Science Day 2026", h:300, c:["#b7862b","#5b2c83"]},
+  {cat:"Lab", title:"At the bench, SPS synthesis lab", h:260, c:["#1f2f6b","#5b7bd6"]},
+  {cat:"Conferences", title:"FCSB-2024, University of Hyderabad", h:220, c:["#0f6e7a","#24398a"]},
+  {cat:"Celebrations", title:"Group celebration", h:280, c:["#5b2c83","#b7862b"]},
+  {cat:"Science", title:"Single-crystal X-ray structure of a tetrahydroxanthenone", h:240, c:["#0f8a7e","#1f2f6b"]},
+  {cat:"Conferences", title:"16th CRSI–RSC Conference, JNU, 2023", h:260, c:["#24398a","#b7862b"]},
+  {cat:"Lab", title:"Photoreactor set-up", h:220, c:["#1f2f6b","#0f8a7e"]},
+  {cat:"Celebrations", title:"Thesis submission day", h:250, c:["#b7862b","#0f6e7a"]},
+];
+
+const NEWS = [
+  {d:"Oct 2026", t:"Harendra Sheshma submits his Ph.D. thesis, “Strategic Application of Graphitic Carbon Nitride Based Catalysis in Organic Transformation”. Congratulations!"},
+  {d:"2026", t:"Our CNO/L-proline enantioselective photocatalysis paper is accepted in <i>ACS Catalysis</i>."},
+  {d:"2026", t:"Regioselective aziridine ring opening by oxidised carbon nitride is published in <i>J. Org. Chem.</i>"},
+  {d:"Feb 2026", t:"Harendra wins the Best Poster Award at National Science Day 2026, SPS, JNU."},
+  {d:"2025", t:"Our review “Advances in Carbon Nitride Catalysis towards Heterocyclization” appears in <i>Synthesis</i>."},
+  {d:"Nov 2023", t:"Best Poster Award at the International Conference on Green Chemistry and UN-SDGs, University of Delhi."},
+];
+
+const CONF = [
+  {d:"Feb 2026", t:"National Science Day 2026, “Women in Science: Catalysing Viksit Bharat”, SPS, JNU (poster, award)"},
+  {d:"Jan 2024", t:"Fostering Catalysis for Societal Benefit (FCSB-2024), University of Hyderabad"},
+  {d:"Nov 2023", t:"International Conference & Workshop on Twelve Principles of Green Chemistry and UN-SDGs, University of Delhi (poster, award)"},
+  {d:"Feb 2023", t:"16th CRSI–RSC Conference, JNU, New Delhi"},
+  {d:"2022", t:"Indo-German Week of the Young Researcher (IGWYR-2022), IIT Delhi"},
+  {d:"Jan 2019", t:"25th ISCB International Conference (ISCB-2019)"},
+  {d:"Dec 2018", t:"National Conference on Chemistry for Human Health and Environment (CHHE), University of Delhi"},
+];
+
+/* ================== rendering (no need to edit below) ================== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const initials = n => n.replace(/^(Dr\.|Prof\.)\s*/,"").split(/\s+/).map(w=>w[0]).slice(0,2).join("");
+const avatar = (p, n, cls="avatar sm") => `<div class="${cls}">${p ? `<img src="${esc(p)}" alt="${esc(n)}">` : initials(n)}</div>`;
+
+if (PI_PHOTO) $("#pi-photo").innerHTML = `<img src="${esc(PI_PHOTO)}" alt="Dr. Ankita Rai">`;
+
+$("#current").innerHTML = CURRENT.map(p => `
+  <div class="card person">${avatar(p.photo,p.name)}
+    <h3>${esc(p.name)}</h3><div class="role">${esc(p.role)}</div>
+    <p>${esc(p.bio||"")}</p>${p.link?`<p><a href="${esc(p.link)}">Contact</a></p>`:""}
+  </div>`).join("");
+$("#alumni").innerHTML = ALUMNI.map(p => `<li><b>${esc(p.name)}</b><span>${esc(p.note)}</span></li>`).join("");
+$("#msc").innerHTML = MSC.map(n => `<li>${esc(n)}</li>`).join("");
+$("#collab").innerHTML = COLLAB.map(p => `<div class="card person"><h3>${esc(p.name)}</h3><div class="role">${esc(p.place)}</div><p>${esc(p.area)}</p></div>`).join("");
+
+// publications
+$("#stat-pubs").textContent = PUBS.filter(p=>p.type!=="submitted").length + "+";
+const boldGroup = a => GROUP.reduce((s,n)=>s.split(esc(n)).join(`<b>${esc(n)}</b>`), esc(a));
+const fmtTitle = t => esc(t).replace(/C3N4/g,"C<sub>3</sub>N<sub>4</sub>").replace(/sp2/g,"sp<sup>2</sup>");
+let pubFilter = "all";
+const FILTERS = [["all","All"],["article","Articles"],["review","Reviews"],["submitted","Submitted"]];
+$("#pub-filters").innerHTML = FILTERS.map(([k,l])=>`<button class="chip${k==="all"?" on":""}" data-f="${k}">${l}</button>`).join(" ");
+$("#pub-filters").onclick = e => { const b=e.target.closest(".chip"); if(!b) return;
+  pubFilter=b.dataset.f; document.querySelectorAll("#pub-filters .chip").forEach(c=>c.classList.toggle("on",c===b)); renderPubs(); };
+$("#pub-q").oninput = renderPubs;
+function renderPubs(){
+  const q = $("#pub-q").value.trim().toLowerCase();
+  const list = PUBS.filter(p => (pubFilter==="all"||p.type===pubFilter) && (!q || (p.t+p.a+p.j).toLowerCase().includes(q)));
+  if(!list.length){ $("#pub-list").innerHTML = `<p class="empty">No publications match.</p>`; return; }
+  let html="", yr=null, n=list.length;
+  list.forEach(p => {
+    if(p.y!==yr){ yr=p.y; html+=`<div class="year-h">${yr}</div>`; }
+    const title = p.doi ? `<a class="t" href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener">${fmtTitle(p.t)}</a>` : `<span class="t">${fmtTitle(p.t)}</span>`;
+    const badge = p.type==="review" ? `<span class="tag gold">Review</span>` : p.type==="submitted" ? `<span class="tag">Submitted</span>` : "";
+    html += `<div class="pub"><div class="n">${n--}.</div><div>${badge}${title}
+      <div class="a">${boldGroup(p.a)}</div>
+      <div class="j"><i>${esc(p.j)}</i> ${esc(p.v)}${p.doi?` · DOI: <a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)}</a>`:""}</div></div></div>`;
+  });
+  $("#pub-list").innerHTML = html;
+}
+renderPubs();
+
+// awards
+const medal = `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg>`;
+$("#award-list").innerHTML = AWARDS.sort((a,b)=>b.y-a.y).map(a => `
+  <div class="card award"><div class="medal">${medal}</div><div>
+    <div class="yr">${esc(a.y)} · ${esc(a.who)}</div><h3 style="margin:.2em 0">${esc(a.t)}</h3><p>${esc(a.at)}</p></div></div>`).join("");
+
+// gallery
+let galCat = "All";
+const cats = ["All", ...new Set(GALLERY.map(g=>g.cat))];
+$("#gal-filters").innerHTML = cats.map(c=>`<button class="chip${c==="All"?" on":""}" data-c="${c}">${c}</button>`).join("");
+$("#gal-filters").onclick = e => { const b=e.target.closest(".chip"); if(!b) return;
+  galCat=b.dataset.c; document.querySelectorAll("#gal-filters .chip").forEach(c=>c.classList.toggle("on",c===b)); renderGal(); };
+const media = (g, big) => g.src ? `<img src="${esc(g.src)}" alt="${esc(g.title)}">`
+  : `<div class="ph" style="height:${big?420:g.h}px;background:linear-gradient(135deg,${g.c[0]},${g.c[1]})">
+      <div><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" style="opacity:.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 7"/></svg>
+      <div style="opacity:.85;font-size:.85rem;margin-top:6px">Photo coming soon</div></div></div>`;
+function renderGal(){
+  const list = GALLERY.filter(g=>galCat==="All"||g.cat===galCat);
+  $("#gal").innerHTML = list.map(g=>`<figure class="gitem" data-i="${GALLERY.indexOf(g)}">${media(g)}<figcaption><b>${esc(g.title)}</b>${esc(g.cat)}</figcaption></figure>`).join("");
+}
+$("#gal").onclick = e => { const f=e.target.closest(".gitem"); if(!f) return; const g=GALLERY[f.dataset.i];
+  $("#lb-media").innerHTML = media(g,true); $("#lb-cap").textContent = g.title; $("#lb").classList.add("open"); };
+function closeLb(){ $("#lb").classList.remove("open"); }
+document.addEventListener("keydown", e => { if(e.key==="Escape") closeLb(); });
+renderGal();
+
+// news
+const newsLi = n => `<li><time>${esc(n.d)}</time><div>${n.t}</div></li>`;
+$("#news-latest").innerHTML = NEWS.slice(0,4).map(newsLi).join("");
+$("#news-all").innerHTML = NEWS.map(newsLi).join("");
+$("#conf").innerHTML = CONF.map(c=>`<li><time>${esc(c.d)}</time><div>${esc(c.t)}</div></li>`).join("");
+
+// simple hash router
+function route(){
+  const id = (location.hash||"#home").slice(1);
+  const page = document.getElementById(id) && document.getElementById(id).classList.contains("page") ? id : "home";
+  document.querySelectorAll("section.page").forEach(s=>s.classList.toggle("show", s.id===page));
+  document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+page));
+  document.querySelector("nav").classList.remove("open");
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", route);
+route();
+$("#yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
