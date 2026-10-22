@@ -70,7 +70,7 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 24px rgba(12,18,34,.06
 .logo svg{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .logo:hover svg{transform:rotate(120deg)}
 nav ul{list-style:none;display:flex;gap:2px;margin:0;padding:0}
-nav a{position:relative;display:block;padding:8px 10px;border-radius:8px;color:var(--ink-2);font-weight:500;font-size:.9rem}
+nav a{position:relative;display:block;white-space:nowrap;padding:8px 9px;border-radius:8px;color:var(--ink-2);font-weight:500;font-size:.9rem}
 nav a:hover{background:var(--hover);text-decoration:none}
 nav a.active{color:var(--brand)}
 nav a.active::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;border-radius:2px;background:var(--accent)}
@@ -78,7 +78,7 @@ nav a.active::after{content:"";position:absolute;left:10px;right:10px;bottom:2px
 .icon-btn{background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--ink)}
 .icon-btn:hover{background:var(--hover)}
 .menu-btn{display:none}
-@media (max-width:1040px){
+@media (max-width:1200px){
   .menu-btn{display:grid}
   nav{position:absolute;top:70px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none;box-shadow:0 18px 30px rgba(0,0,0,.08)}
   nav.open{display:block}
@@ -101,6 +101,26 @@ main section.page.show{display:block}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .eyebrow::before{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
 .lead{font-size:1.12rem;color:var(--ink-2);max-width:62ch}
+
+/* featured cover */
+.cover-feat{display:grid;grid-template-columns:250px 1fr;gap:40px;align-items:center;margin-top:60px;padding:clamp(22px,4vw,40px);border-radius:22px;background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);box-shadow:var(--shadow)}
+.cover-feat img{width:100%;border-radius:8px;box-shadow:0 22px 44px rgba(12,18,34,.28);transform:rotate(-2.5deg);transition:transform .5s cubic-bezier(.2,.8,.2,1);cursor:zoom-in}
+.cover-feat img:hover{transform:rotate(0) scale(1.03)}
+.cover-feat .meta{color:var(--gold);font-weight:600;font-size:.92rem;margin:-4px 0 12px}
+@media (max-width:700px){.cover-feat{grid-template-columns:1fr;text-align:left}.cover-feat img{max-width:210px}}
+
+/* small figures inside research themes */
+.figs{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.figs figure{margin:0;width:132px;cursor:zoom-in}
+.figs img{width:132px;height:132px;object-fit:cover;border-radius:12px;border:1px solid var(--line);transition:transform .3s}
+.figs figure:hover img{transform:translateY(-3px)}
+.figs figcaption{font-size:.76rem;color:var(--muted);margin-top:5px;line-height:1.35}
+
+/* facilities */
+.card.fac{padding:0;overflow:hidden}
+.fac img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;cursor:zoom-in}
+.fac .body{padding:20px 22px 22px}
+.fac h3{margin-bottom:4px}
 
 /* page banner */
 .page-head{position:relative;overflow:hidden;margin-bottom:40px;padding:40px clamp(22px,4vw,44px);border-radius:22px;background:var(--surface);border:1px solid var(--line)}
@@ -205,7 +225,7 @@ main section.page.show{display:block}
 .pi{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start}
 @media (max-width:760px){.pi{grid-template-columns:1fr}}
 .avatar{position:relative;aspect-ratio:1;border-radius:22px;background:linear-gradient(140deg,#25398a,#0f8a7e);display:grid;place-items:center;font-family:Fraunces,serif;font-size:3.4rem;color:#fff;overflow:hidden}
-.avatar.sm{font-size:1.5rem;border-radius:50%;width:76px;height:76px;aspect-ratio:auto;margin-bottom:16px;box-shadow:0 0 0 4px var(--surface),0 0 0 6px var(--accent-soft)}
+.avatar.sm{font-size:1.7rem;border-radius:50%;width:104px;height:104px;aspect-ratio:auto;margin-bottom:16px;box-shadow:0 0 0 4px var(--surface),0 0 0 6px var(--accent-soft)}
 .avatar img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
 .timeline li{position:relative;padding:0 0 16px 22px}
@@ -299,6 +319,7 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#facilities">Facilities</a></li>
         <li><a href="#pi">PI</a></li>
         <li><a href="#members">Members</a></li>
         <li><a href="#publications">Publications</a></li>
@@ -395,6 +416,20 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
     </div>
   </div>
 
+  <div class="cover-feat reveal">
+    <img src="images/joc-cover.jpg" alt="Front cover of The Journal of Organic Chemistry, Volume 91, Number 2, January 16, 2026" data-zoom="images/joc-cover.jpg" data-cap="Front cover, The Journal of Organic Chemistry, Vol. 91, No. 2, January 16, 2026">
+    <div>
+      <div class="eyebrow">Featured cover</div>
+      <h2>On the cover of <i>The Journal of Organic Chemistry</i></h2>
+      <p class="meta">Volume 91, Number 2 · January 16, 2026</p>
+      <p style="color:var(--ink-2)">Our work on <b>visible-light-induced oxidised carbon nitride catalysis</b> was chosen for the front cover. A single heterogeneous, metal-free CNO photocatalyst opens <i>N</i>-tosylaziridines and styrene oxide with alcohols, azide and bromide nucleophiles, always at the benzylic carbon, under a household blue LED.</p>
+      <div class="btns">
+        <a class="btn btn-brand" href="https://doi.org/10.1021/acs.joc.5c01366" target="_blank" rel="noopener">Read the paper ↗</a>
+        <a class="btn btn-line" href="#publications">All publications</a>
+      </div>
+    </div>
+  </div>
+
   <div class="section-title reveal"><h2>Latest news</h2><a href="#news">All news →</a></div>
   <ul class="news" id="news-latest"></ul>
 </section>
@@ -419,6 +454,11 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
         <li>Single-electron-transfer pathways supported by radical trapping (TEMPO, BHT) and DPPH-EPR studies</li>
         <li>Metal-doped carbon nitrides (Cu@g-C<sub>3</sub>N<sub>4</sub>, Co@g-C<sub>3</sub>N<sub>4</sub>, Cu/Cu<sub>2</sub>O@g-C<sub>3</sub>N<sub>4</sub>) as visible-light photocatalysts for nitriles, γ-ketonitriles, 1<i>H</i>-tetrazoles, benzimidazoles and Hantzsch/Biginelli heterocycles, often in water</li>
       </ul>
+      <div class="figs">
+        <figure data-zoom="images/blue-led-reaction.jpg" data-cap="Reactions running under blue LEDs"><img src="images/blue-led-reaction.jpg" alt="Reaction tubes under a blue LED panel" loading="lazy"><figcaption>Reactions under blue LEDs</figcaption></figure>
+        <figure data-zoom="images/photoreactor.jpg" data-cap="Photocatalysed reaction set-up"><img src="images/photoreactor.jpg" alt="Photocatalysis reaction set-up lit by blue LEDs" loading="lazy"><figcaption>Photoreactor set-up</figcaption></figure>
+        <figure data-zoom="images/joc-cover.jpg" data-cap="Front cover, J. Org. Chem. 91 (2), January 2026"><img src="images/joc-cover.jpg" alt="JOC cover" loading="lazy" style="object-position:top"><figcaption>JOC cover, 2026</figcaption></figure>
+      </div>
     </div>
   </div>
 
@@ -461,6 +501,11 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
       <span class="tag green">Selectivity</span><span class="tag">Mechanism</span>
       <h3>Divergent, ring-opening and reagent-controlled synthesis</h3>
       <p>Ring-opening–ring-closing strategies turn aziridines and epoxides into aza- and oxa-heterocycles. NaOH-Ox-CN works as a recyclable solid base. It takes salicylaldehydes and 1,3-diketones down to either hemiketals or 9-substituted tetrahydroxanthenones, and we study the branch point with Hammett analysis, crossover experiments and X-ray crystallography. Pristine g-C<sub>3</sub>N<sub>4</sub> converts styrenes into 4-aryl-α-tetralones (with Katritzky salts as non-incorporating electron acceptors) or into α-iodoketones (with I<sub>2</sub> and air).</p>
+      <div class="figs">
+        <figure data-zoom="images/crystals-1.jpg" data-cap="Single crystals of a tetrahydroxanthenone-series product under the microscope"><img src="images/crystals-1.jpg" alt="Single crystals under a microscope" loading="lazy"><figcaption>Single crystals under the microscope</figcaption></figure>
+        <figure data-zoom="images/crystals-2.jpg" data-cap="Crystals screened under the microscope before X-ray analysis"><img src="images/crystals-2.jpg" alt="Crystals with a measuring reticle under a microscope" loading="lazy"><figcaption>Screening crystals for X-ray</figcaption></figure>
+        <figure data-zoom="images/crystal-structure.jpg" data-cap="Single-crystal X-ray structure of a nitro-substituted hemiketal, viewed in Mercury (CSD)"><img src="images/crystal-structure.jpg" alt="Crystal structure of a nitro-substituted hemiketal in Mercury" loading="lazy" style="object-position:center 40%"><figcaption>Solved X-ray structure (Mercury)</figcaption></figure>
+      </div>
     </div>
   </div>
 
@@ -499,6 +544,35 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
         <li>Published in <i>Sens. Actuators B</i>, <i>Talanta</i>, <i>Electroanalysis</i>, <i>J. Electroanal. Chem.</i> and other journals, along with reviews and book chapters</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="page" id="facilities">
+  <div class="page-head reveal">
+    <svg class="bg" viewBox="-100 -100 200 200" data-mol aria-hidden="true"></svg>
+    <div class="eyebrow">Infrastructure</div>
+    <h2>Facilities</h2>
+    <p class="lead">The instruments and set-ups we use every day to run, purify and characterise our reactions, along with the shared central facilities at JNU.</p>
+  </div>
+  <div class="grid g3">
+    <div class="card lift fac reveal"><img src="images/hplc.jpg" alt="Shimadzu HPLC system" data-zoom="images/hplc.jpg" data-cap="Shimadzu HPLC system" loading="lazy">
+      <div class="body"><span class="tag green">Analysis</span><h3>HPLC</h3><p>A Shimadzu HPLC system (LC-20AD) used for reaction monitoring, purity checks and enantiomeric-excess determination of chiral products.</p></div></div>
+    <div class="card lift fac reveal" style="--d:.08s"><img src="images/flash-chromatography.jpg" alt="Yamazen Smart Flash chromatography system" data-zoom="images/flash-chromatography.jpg" data-cap="Yamazen Smart Flash automated flash chromatography" loading="lazy">
+      <div class="body"><span class="tag green">Purification</span><h3>Automated flash chromatography</h3><p>A Yamazen Smart Flash system for gradient purification, with UV detection and automatic fraction collection.</p></div></div>
+    <div class="card lift fac reveal" style="--d:.16s"><img src="images/blue-led-reaction.jpg" alt="Blue LED photoreactor" data-zoom="images/blue-led-reaction.jpg" data-cap="Visible-light photoreactor" loading="lazy">
+      <div class="body"><span class="tag green">Photochemistry</span><h3>Visible-light photoreactors</h3><p>Blue- and violet-LED set-ups for carbon nitride photocatalysis at room temperature, from screening vials to gram-scale reactions.</p></div></div>
+    <div class="card lift fac reveal"><img src="images/crystals-1.jpg" alt="Crystals under a microscope" data-zoom="images/crystals-1.jpg" data-cap="Crystal growth and screening" loading="lazy" style="object-position:center 45%">
+      <div class="body"><span class="tag green">Crystallography</span><h3>Crystal growth and X-ray</h3><p>Single crystals are grown, screened under the microscope and sent for X-ray diffraction. Structures are solved and visualised in Mercury (CSD).</p></div></div>
+    <div class="card lift fac reveal" style="--d:.08s"><img src="images/data-analysis.jpg" alt="Workstation with NMR spectra and ChemDraw" data-zoom="images/data-analysis.jpg" data-cap="Data analysis workstation" loading="lazy" style="object-position:center 70%">
+      <div class="body"><span class="tag green">Data</span><h3>Data analysis</h3><p>Workstations for NMR and HRMS interpretation, structure drawing in ChemDraw and preparing manuscripts.</p></div></div>
+    <div class="card lift fac reveal" style="--d:.16s"><img src="images/lab-bench.jpg" alt="Synthesis lab bench" data-zoom="images/lab-bench.jpg" data-cap="Synthesis laboratory, SPS" loading="lazy">
+      <div class="body"><span class="tag green">Synthesis</span><h3>Synthesis laboratory</h3><p>Fume hoods, rotary evaporators, balances and a full set of glassware for catalyst preparation and organic synthesis.</p></div></div>
+  </div>
+  <div class="callout reveal" style="margin-top:28px">
+    <svg class="tile" aria-hidden="true"><rect width="100%" height="100%" fill="url(#tile-w)"/></svg>
+    <h3>Central facilities we use</h3>
+    <p>The Advanced Instrumentation Research Facility (AIRF), JNU, provides NMR, HRMS, TEM and EPR. PXRD, FTIR, UV–Vis DRS and single-crystal X-ray measurements are carried out within JNU, and XPS and some chiral HPLC analyses are done with partner institutes.</p>
   </div>
 </section>
 
@@ -712,29 +786,31 @@ footer .base{position:relative;border-top:1px solid #1f2a4c;margin-top:32px;padd
    e.g. photo:"images/harendra.jpg" or src:"images/lab-2024.jpg".
    ===================================================================== */
 
-const PI_PHOTO = ""; // e.g. "images/ankita-rai.jpg"
+const PI_PHOTO = "images/pi-ankita-rai.jpg";
 
 // Home-page banner slideshow: changes every 5 seconds.
 // Put photos in the "images" folder and fill in src, e.g. src:"images/slide1.jpg".
 // While no slide has a photo, coloured placeholder slides are shown instead.
 const SLIDES = [
-  {src:"", caption:"Synthesis lab, School of Physical Sciences, JNU", c:["#1f2f6b","#0f8a7e"]},
-  {src:"", caption:"Visible-light photoreactor with carbon nitride catalysts", c:["#5b2c83","#24398a"]},
-  {src:"", caption:"Best Poster Award, National Science Day 2026", c:["#a8771c","#5b2c83"]},
-  {src:"", caption:"Group members at the 16th CRSI–RSC Conference, JNU", c:["#0f6e7a","#24398a"]},
-  {src:"", caption:"Single-crystal X-ray structures from the group", c:["#0f8a7e","#1f2f6b"]},
-  {src:"", caption:"Celebrating together in the lab", c:["#24398a","#a8771c"]},
+  {src:"images/slide1.jpg", caption:"The group at the School of Physical Sciences, JNU", c:["#1f2f6b","#0f8a7e"]},
+  {src:"images/slide2.jpg", caption:"In the synthesis lab, SPS", c:["#5b2c83","#24398a"]},
+  {src:"images/slide3.jpg", caption:"Under the golden shower tree, JNU campus, May 2026", c:["#a8771c","#5b2c83"]},
+  {src:"images/slide4.jpg", caption:"At the bench in the synthesis lab", c:["#0f6e7a","#24398a"]},
+  {src:"images/slide5.jpg", caption:"HPLC for purity and enantiomeric-excess analysis", c:["#0f8a7e","#1f2f6b"]},
+  {src:"images/slide6.jpg", caption:"Automated flash chromatography", c:["#24398a","#a8771c"]},
 ];
 
 // names shown in bold in author lists (PI and group members)
 const GROUP = ["Ankita Rai","Harendra Sheshma","Sanju Yadav","Ashish Singh","Ashish Kumar Singh","Prashant Shukla","Puneet Kumar Singh"];
 
 const CURRENT = [
-  {name:"Harendra Sheshma", role:"Ph.D. Scholar (CSIR-SRF)", photo:"",
+  {name:"Harendra Sheshma", role:"Ph.D. Scholar (CSIR-SRF)", photo:"images/member-harendra.jpg",
    bio:"Strategic application of graphitic carbon nitride based catalysis in organic transformations: regio-, enantio- and divergent selectivity.",
    link:"mailto:harendrasheshma@gmail.com"},
-  {name:"Sanju Yadav", role:"Ph.D. Scholar", photo:"", bio:"Carbon nitride catalysis and heterocycle synthesis."},
-  {name:"Ashish Singh", role:"Ph.D. Scholar", photo:"", bio:"Heterogeneous photocatalysis and asymmetric synthesis."},
+  {name:"Sanju Yadav", role:"Ph.D. Scholar (CSIR-JRF, now CSIR-SRF)", photo:"images/member-sanju.jpg",
+   bio:"Design of stereoselective organic transformations using g-C3N4, graphene oxide and MOFs."},
+  {name:"Ashish Singh", role:"Ph.D. Scholar (CSIR-JRF, now CSIR-SRF)", photo:"images/member-ashish.jpg",
+   bio:"Organocatalysis, photocatalysis and chiral synthesis."},
 ];
 
 const ALUMNI = [
@@ -847,7 +923,10 @@ const PUBS = [
   P(2007,"article","Biorenewable and Mercaptoacetylating Building Blocks in the Biginelli Reaction: Synthesis of Thiosugar-Annulated Dihydropyrimidines",LDY+"; Chhama Awasthi; "+VKR+"; "+AR,"Tetrahedron Lett.","10.1016/j.tetlet.2007.05.057"),
 ];
 
+const COVER_DOI = "10.1021/acs.joc.5c01366"; // paper featured on a journal front cover
+
 const AWARDS = [
+  {y:"2026", who:"Rai Research Group", t:"Front cover, The Journal of Organic Chemistry", at:"Vol. 91, No. 2, January 16, 2026: oxidised carbon nitride photocatalysis for regioselective aziridine ring opening"},
   {y:"2026", who:"Harendra Sheshma", t:"Best Poster Award (sponsored by J. Chem. Theory Comput., ACS Publications)", at:"National Science Day 2026, “Women in Science: Catalysing Viksit Bharat”, SPS, JNU"},
   {y:"2023", who:"Harendra Sheshma", t:"Best Poster Award", at:"International Conference & Workshop on Twelve Principles of Green Chemistry and UN-SDGs, University of Delhi"},
   {y:"2013", who:"Dr. Ankita Rai", t:"DST INSPIRE Faculty Fellowship", at:"Department of Science & Technology, Government of India"},
@@ -858,15 +937,22 @@ const AWARDS = [
 
 // cat: "Lab" | "Conferences" | "Celebrations" | "Science"; add src:"images/…" to show a real photo
 const GALLERY = [
-  {cat:"Science", title:"Oxidised carbon nitride under blue light", h:220, c:["#24398a","#0f8a7e"]},
-  {cat:"Conferences", title:"Best Poster Award, National Science Day 2026", h:300, c:["#a8771c","#5b2c83"]},
-  {cat:"Lab", title:"At the bench, SPS synthesis lab", h:260, c:["#1f2f6b","#5b7bd6"]},
-  {cat:"Conferences", title:"FCSB-2024, University of Hyderabad", h:220, c:["#0f6e7a","#24398a"]},
-  {cat:"Celebrations", title:"Group celebration", h:280, c:["#5b2c83","#a8771c"]},
-  {cat:"Science", title:"Single-crystal X-ray structure of a tetrahydroxanthenone", h:240, c:["#0f8a7e","#1f2f6b"]},
-  {cat:"Conferences", title:"16th CRSI–RSC Conference, JNU, 2023", h:260, c:["#24398a","#a8771c"]},
-  {cat:"Lab", title:"Photoreactor set-up", h:220, c:["#1f2f6b","#0f8a7e"]},
-  {cat:"Celebrations", title:"Thesis submission day", h:250, c:["#a8771c","#0f6e7a"]},
+  {cat:"Covers", title:"Front cover, J. Org. Chem. 91 (2), January 16, 2026", src:"images/joc-cover.jpg"},
+  {cat:"Group", title:"The group outside the School of Physical Sciences", src:"images/group-sps-building.jpg"},
+  {cat:"Instruments", title:"Shimadzu HPLC system", src:"images/hplc.jpg"},
+  {cat:"Science", title:"Single crystals under the microscope", src:"images/crystals-1.jpg"},
+  {cat:"Group", title:"Under the golden shower tree, May 2026", src:"images/group-tree-1.jpg"},
+  {cat:"Science", title:"Reactions under blue LEDs", src:"images/blue-led-reaction.jpg"},
+  {cat:"Instruments", title:"Automated flash chromatography (Yamazen Smart Flash)", src:"images/flash-chromatography.jpg"},
+  {cat:"Group", title:"Group meeting: presenting optimisation results", src:"images/group-meeting.jpg"},
+  {cat:"Science", title:"Solving a crystal structure in Mercury (CSD)", src:"images/crystal-structure.jpg"},
+  {cat:"Lab", title:"Group photo in the synthesis lab, May 2026", src:"images/group-lab-2026.jpg"},
+  {cat:"Science", title:"Photocatalysed reaction set-up", src:"images/photoreactor.jpg"},
+  {cat:"Lab", title:"Data analysis: NMR spectra and ChemDraw", src:"images/data-analysis.jpg"},
+  {cat:"Conferences", title:"Group poster: “Advanced Materials Framework Towards Catalytic Organic Transformations”, Nov 2025", src:"images/poster-2025-1.jpg"},
+  {cat:"Science", title:"Crystals screened before X-ray analysis", src:"images/crystals-2.jpg"},
+  {cat:"Lab", title:"At the bench in the synthesis lab", src:"images/lab-bench.jpg"},
+  {cat:"Science", title:"A colourful product in the flask", src:"images/synthesis.jpg"},
 ];
 
 const NEWS = [
@@ -874,7 +960,7 @@ const NEWS = [
   {d:"2026", t:"Our CNO/L-proline enantioselective photocatalysis paper is accepted in <i>ACS Catalysis</i>."},
   {d:"2026", t:"New edited book: <i>Catalytic Applications of Carbon Nitride-Based Nanomaterials</i> (Bentham Science), co-edited by Dr. Rai."},
   {d:"2026", t:"Ring-opening–ring-closing routes to aza- and oxa-heterocycles appear in <i>Tetrahedron Lett.</i> and <i>ChemistrySelect</i>."},
-  {d:"2026", t:"Regioselective aziridine ring opening by oxidised carbon nitride is published in <i>J. Org. Chem.</i>"},
+  {d:"Jan 2026", t:"Our aziridine ring-opening paper is featured on the <b>front cover</b> of <i>J. Org. Chem.</i> 91 (2)."},
   {d:"Feb 2026", t:"Harendra wins the Best Poster Award at National Science Day 2026, SPS, JNU."},
   {d:"2025", t:"Our review “Advances in Carbon Nitride Catalysis towards Heterocyclization” appears in <i>Synthesis</i>."},
   {d:"Nov 2023", t:"Best Poster Award at the International Conference on Green Chemistry and UN-SDGs, University of Delhi."},
@@ -950,7 +1036,7 @@ if (PI_PHOTO) $("#pi-photo").innerHTML = `<img src="${esc(PI_PHOTO)}" alt="Dr. A
 $("#current").innerHTML = CURRENT.map((p,i) => `
   <div class="card lift person reveal" style="--d:${i*.08}s">${avatar(p.photo,p.name)}
     <h3>${esc(p.name)}</h3><div class="role">${esc(p.role)}</div>
-    <p>${esc(p.bio||"")}</p>${p.link?`<p><a href="${esc(p.link)}">Contact →</a></p>`:""}
+    <p><b style="color:var(--ink)">Ph.D. topic:</b> ${esc(p.bio||"").replace(/C3N4/g,"C<sub>3</sub>N<sub>4</sub>")}</p>${p.link?`<p><a href="${esc(p.link)}">Contact →</a></p>`:""}
   </div>`).join("");
 $("#alumni").innerHTML = ALUMNI.map(p => `<li><b>${esc(p.name)}</b><span>${esc(p.note)}</span></li>`).join("");
 $("#msc").innerHTML = MSC.map(n => `<li>${esc(n)}</li>`).join("");
@@ -982,7 +1068,8 @@ function renderPubs(){
     if(p.y!==yr){ yr=p.y; html+=`<div class="year-h">${yr}</div>`; }
     const title = p.doi ? `<a class="t" href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener">${fmtTitle(p.t)}</a>` : `<span class="t">${fmtTitle(p.t)}</span>`;
     const where = p.type==="submitted" ? " · Submitted" : ` ${p.y}${p.v ? ", "+esc(p.v) : ""}`;
-    html += `<div class="pub"><div class="n">${n--}.</div><div>${BADGE[p.type]||""}${title}
+    const cover = p.doi===COVER_DOI ? `<span class="tag gold">★ JOC front cover</span>` : "";
+    html += `<div class="pub"><div class="n">${n--}.</div><div>${BADGE[p.type]||""}${cover}${title}
       <div class="a">${fmtAuthors(p.a)}</div>
       <div class="j"><i>${esc(p.j)}</i>${where}${p.doi?` · DOI: <a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)}</a>`:""}</div></div></div>`;
   });
@@ -1004,7 +1091,7 @@ const cats = ["All", ...new Set(GALLERY.map(g=>g.cat))];
 $("#gal-filters").innerHTML = cats.map(c=>`<button class="chip${c==="All"?" on":""}" data-c="${c}">${c}</button>`).join("");
 $("#gal-filters").onclick = e => { const b=e.target.closest(".chip"); if(!b) return;
   galCat=b.dataset.c; document.querySelectorAll("#gal-filters .chip").forEach(c=>c.classList.toggle("on",c===b)); renderGal(); };
-const media = (g, big) => g.src ? `<img src="${esc(g.src)}" alt="${esc(g.title)}">`
+const media = (g, big) => g.src ? `<img src="${esc(g.src)}" alt="${esc(g.title)}"${big ? "" : ` loading="lazy"`}>`
   : `<div class="ph" style="height:${big?420:g.h}px;background:linear-gradient(135deg,${g.c[0]},${g.c[1]})">
       <svg class="tile"><rect width="100%" height="100%" fill="url(#tile-w)"/></svg>
       <div><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" style="opacity:.85"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 7"/></svg>
@@ -1016,6 +1103,8 @@ function renderGal(){
 $("#gal").onclick = e => { const f=e.target.closest(".gitem"); if(!f) return; const g=GALLERY[f.dataset.i];
   $("#lb-media").innerHTML = media(g,true); $("#lb-cap").textContent = g.title; $("#lb").classList.add("open"); };
 function closeLb(){ $("#lb").classList.remove("open"); }
+document.addEventListener("click", e => { const z = e.target.closest("[data-zoom]"); if(!z) return;
+  $("#lb-media").innerHTML = `<img src="${esc(z.dataset.zoom)}" alt="">`; $("#lb-cap").textContent = z.dataset.cap || ""; $("#lb").classList.add("open"); });
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeLb(); });
 renderGal();
 
